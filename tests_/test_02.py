@@ -20,4 +20,5 @@ navigationBarObject.click_to_cart_button()
 cartPageObject = CartPage(driver)
 cartPageObject.delete_first_product_from_cart()
 
+
 driver.close()

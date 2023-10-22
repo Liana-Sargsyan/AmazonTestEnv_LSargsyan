@@ -22,8 +22,9 @@ passwordFieldElement = driver.find_element(By.ID, "ap_password")
 passwordFieldElement.clear()
 passwordFieldElement.send_keys("tracemalloc2023")
 
-time.sleep(5)
+time.sleep(6)
 signinButtonElement = driver.find_element(By.ID, "signInSubmit")
 signinButtonElement.click()
+time.sleep(6)
 
 driver.close()
