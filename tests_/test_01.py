@@ -27,4 +27,6 @@ signinButtonElement = driver.find_element(By.ID, "signInSubmit")
 signinButtonElement.click()
 time.sleep(6)
 
+#time sleep on lines 25 and 28 is for avoiding CAPTCHA test.
+
 driver.close()

@@ -2,6 +2,7 @@ from selenium import webdriver
 from pages_.loginPage import LoginPage
 from pages_.navigationBar import NavigationBar
 from pages_.cartPage import CartPage
+import time
 
 driver = webdriver.Chrome()
 driver.implicitly_wait(10)
@@ -12,6 +13,7 @@ loginPageObject = LoginPage(driver)
 loginPageObject.fill_username_field("lianasargsyan202@gmail.com")
 loginPageObject.click_to_continue_button()
 loginPageObject.fill_password_field("tracemalloc2023")
+time.sleep(5)   #time sleep is for avoiding CAPTCHA test.
 loginPageObject.click_to_signin_button()
 
 navigationBarObject = NavigationBar(driver)

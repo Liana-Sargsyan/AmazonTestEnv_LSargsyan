@@ -2,13 +2,9 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from pages_.basePage import BasePage
 
-from time import sleep
-
-
 class LoginPage(BasePage):
     def __init__(self, driver: webdriver):
         self.driver = driver
-
 
     def fill_username_field(self, username):
         # usernameFieldElement = self.driver.find_element(By.ID, "ap_email")
@@ -31,10 +27,7 @@ class LoginPage(BasePage):
         # passwordFieldElement.send_keys(password)
 
     def click_to_signin_button(self):
-        sleep(6)
         # signinButtonElement = self.driver.find_element(By.ID, "signInSubmit")
         signinButtonElement = self._find_element(By.ID, "signInSubmit")
         self._click_to_element(signinButtonElement)
         # signinButtonElement.click()
-        sleep(6)
-
