@@ -8,6 +8,7 @@ class SearchResultsPage(BasePage):
         self.__firstProductLocator = (By.XPATH, "(//span[@class ='a-size-medium a-color-base a-text-normal']) [1]")
         self.__sortByDropdownLocator = (By.XPATH, "//span[@class='a-button a-button-dropdown a-button-small']")
         self.__sortByBestSellersLocator = (By.ID, "s-result-sort-select_5")
+        self.__sortByDropdownTextLocator = (By.XPATH, "//span[@class='a-button a-button-dropdown a-button-small']")
 
     def click_to_first_product(self):
         firstProductElement = self._find_element(self.__firstProductLocator)
@@ -21,3 +22,6 @@ class SearchResultsPage(BasePage):
         bestSellerOptionElement = self._find_element(self.__sortByBestSellersLocator)
         self._click_to_element(bestSellerOptionElement)
 
+    def validate_sort_by_dropdown_text(self):
+        sortByDropdowTextElement = self._find_element(self.__sortByDropdownTextLocator)
+        return self._get_element_text(sortByDropdowTextElement)

@@ -8,6 +8,8 @@ class NavigationBar(BasePage):
         self.__cartButtonLocator = (By.ID, "nav-cart-count")
         self.__searchFieldLocator = (By.ID, "twotabsearchtextbox")
         self.__searchSubmitButtonLocator = (By.ID, "nav-search-submit-button")
+        self.__accountBoxLocator = (By.ID, "nav-link-accountList")
+        self.__signOutLocator = (By.XPATH, "(//span[@class='nav-text'])[16]")
 
     def click_to_cart_button(self):
         cartButtonElement = self._find_element(self.__cartButtonLocator)
@@ -15,13 +17,16 @@ class NavigationBar(BasePage):
 
     def fill_search_field(self, text):
         searchFieldElement = self._find_element(self.__searchFieldLocator)
-        self._click_to_element(searchFieldElement)
         self._fill_field(searchFieldElement, text)
 
     def click_to_search_submit_button(self):
-        searchSubmitButton = self._find_element(self.__searchSubmitButtonLocator)
-        self._click_to_element(searchSubmitButton)
+        searchSubmitButtonElement = self._find_element(self.__searchSubmitButtonLocator)
+        self._click_to_element(searchSubmitButtonElement)
 
+    def mouse_move_to_account_box(self):
+        accountBoxElement = self._find_element(self.__accountBoxLocator)
+        self._mouse_move(accountBoxElement)
 
-
-
+    def click_to_sigh_out_element(self):
+        signOutElement = self._find_element(self.__signOutLocator)
+        self._click_to_element(signOutElement)
