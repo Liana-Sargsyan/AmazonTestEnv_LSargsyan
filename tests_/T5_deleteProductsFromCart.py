@@ -8,7 +8,7 @@ from common_.utilities_.customListener import MyListener
 import time
 
 
-class AllProductsDeleteFromCart(unittest.TestCase):
+class FirstProductDeleteFromCart(unittest.TestCase):
 
     def setUp(self):
         self.simpleDriver = webdriver.Chrome()
@@ -25,6 +25,22 @@ class AllProductsDeleteFromCart(unittest.TestCase):
         loginPageObj.click_to_signin_button()
         navigationBarObj = NavigationBar(self.driver)
         navigationBarObj.click_to_cart_button()
+
+    def test_validate_emptiness_of_cart(self):
+        cartPageObj = CartPage(self.driver)
+        warningMessageOfCartEmptiness = cartPageObj.validate_cart_emptiness_by_warning_message()
+        self.assertTrue(warningMessageOfCartEmptiness, "Error: validation failed")
+
+    def test_delete_first_product_from_cart(self):
+        cartPageObj = CartPage(self.driver)
+        cartCountBeforeDeletion = int(cartPageObj.validate_cart_count())
+        if int(cartPageObj.validate_cart_count()) >= 1:
+            cartPageObj.delete_first_product_from_cart()
+        else:
+            print("Warning: Your Amazon Cart is empty.")
+        cartCountAfterDeletion = int(cartPageObj.validate_cart_count())
+
+        self.assertEqual(cartCountAfterDeletion, cartCountBeforeDeletion - 1, "Unsuccessful Deletion")
 
     def test_delete_all_products_from_cart(self):
         cartPageObj = CartPage(self.driver)

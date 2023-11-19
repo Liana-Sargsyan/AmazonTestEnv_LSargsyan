@@ -31,8 +31,7 @@ class LoginPage(BasePage):
 
     def validate_invalid_password_error_message(self):
         errorMessageElement = self._get_element_text_by_locator(self.__invalidPasswordErrorMessageLocator)
-        expectedErrorMessage = """There was a problem
-Your password is incorrect"""
+        expectedErrorMessage = "There was a problem\nYour password is incorrect"
         if errorMessageElement == expectedErrorMessage:
             return True
         else:
@@ -40,8 +39,7 @@ Your password is incorrect"""
 
     def validate_invalid_username_error_message(self):
         errorMessageElement = self._get_element_text_by_locator(self.__invalidUsernameErrorMessageLocator)
-        expectedErrorMessage = """There was a problem
-We cannot find an account with that email address"""
+        expectedErrorMessage = "There was a problem\nWe cannot find an account with that email address"
         if errorMessageElement == expectedErrorMessage:
             return True
         else:
