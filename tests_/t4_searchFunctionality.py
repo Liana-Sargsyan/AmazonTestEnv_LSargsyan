@@ -1,20 +1,9 @@
-import unittest
-from selenium import webdriver
 from pages_.navigationBar import NavigationBar
 from pages_.searchResultsPage import SearchResultsPage
-from selenium.webdriver.support.events import EventFiringWebDriver
-from common_.utilities_.customListener import MyListener
+from tests_.baseTest import BaseTestWithoutLogIn
 
 
-class SearchFunctionality(unittest.TestCase):
-
-    def setUp(self):
-        self.simpleDriver = webdriver.Chrome()
-        self.driver = EventFiringWebDriver(self.simpleDriver, MyListener())
-        self.driver.implicitly_wait(10)
-        self.driver.delete_all_cookies()
-        self.driver.maximize_window()
-        self.driver.get("https://www.amazon.com/")
+class SearchFunctionality(BaseTestWithoutLogIn):
 
     def test_relevant_search_results(self):
         navigationBarObj = NavigationBar(self.driver)
@@ -31,7 +20,5 @@ class SearchFunctionality(unittest.TestCase):
         searchResultsPageObj.click_to_sort_by_dropdown()
         searchResultsPageObj.click_to_best_seller_option()
 
-        self.assertEqual(searchResultsPageObj.validate_sort_by_dropdown_text(), "Sort by:Best Sellers", "Wrong Element Text")
-
-    def tearDown(self):
-        self.driver.close()
+        self.assertEqual(searchResultsPageObj.validate_sort_by_dropdown_text(), "Sort by:Best Sellers",
+                         "Wrong Element Text")

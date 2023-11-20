@@ -10,6 +10,7 @@ class NavigationBar(BasePage):
         self.__searchSubmitButtonLocator = (By.ID, "nav-search-submit-button")
         self.__accountBoxLocator = (By.ID, "nav-link-accountList")
         self.__signOutLocator = (By.XPATH, "(//span[@class='nav-text'])[16]")
+        self.__cartCountValidationLocator = (By.ID, "nav-cart-count")
 
     def click_to_cart_button(self):
         cartButtonElement = self._find_element(self.__cartButtonLocator)
@@ -30,3 +31,7 @@ class NavigationBar(BasePage):
     def click_to_sigh_out_element(self):
         signOutElement = self._find_element(self.__signOutLocator)
         self._click_to_element(signOutElement)
+
+    def get_cart_count(self):
+        cartCountElement = self._find_element(self.__cartCountValidationLocator)
+        return self._get_element_text(cartCountElement)
