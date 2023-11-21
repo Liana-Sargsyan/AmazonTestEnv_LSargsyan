@@ -28,7 +28,7 @@ class NavigationBar(BasePage):
         accountBoxElement = self._find_element(self.__accountBoxLocator)
         self._mouse_move(accountBoxElement)
 
-    def click_to_sigh_out_element(self):
+    def click_to_sign_out_element(self):
         signOutElement = self._find_element(self.__signOutLocator)
         self._click_to_element(signOutElement)
 
