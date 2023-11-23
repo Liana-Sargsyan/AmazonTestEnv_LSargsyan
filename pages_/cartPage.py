@@ -1,5 +1,6 @@
 from selenium.webdriver.common.by import By
 from pages_.basePage import BasePage
+from common_.utilities_.customLogger import *
 
 
 class CartPage(BasePage):
@@ -16,9 +17,11 @@ class CartPage(BasePage):
     def validate_cart_emptiness_by_warning_message(self):
         cartEmptinessMessageElement = self._get_element_text_by_locator(self.__cartEmptinessMessageLocator)
         if cartEmptinessMessageElement == "Your Amazon Cart is empty.":
-            return True
+            logger("INFO", "Your cart is empty")
+
         else:
-            return False
+            logger("INFO:", "Your cart is not empty")
+            exit(4)
 
     def delete_all_products_from_cart(self):
         allProductsDeleteElements = self._find_elements(self.__allProductsDeleteLocator)
