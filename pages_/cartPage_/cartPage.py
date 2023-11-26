@@ -24,6 +24,8 @@ class CartPage(BasePage):
             exit(4)
 
     def delete_all_products_from_cart(self):
-        allProductsDeleteElements = self._find_elements(self.__allProductsDeleteLocator)
-        for deleteButton in allProductsDeleteElements:
-            deleteButton.click()
+        from pages_.navigationBarPage_.navigationBar import NavigationBar
+        navigationBarObj = NavigationBar(self.driver)
+        while int(navigationBarObj.get_cart_count()) != 0:
+            firstProductDeleteElement = self._find_element(self.__firstProductDeleteLocator)
+            self._click_to_element(firstProductDeleteElement)

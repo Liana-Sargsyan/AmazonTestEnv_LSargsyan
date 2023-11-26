@@ -1,4 +1,4 @@
-from pages_.navigationBar import NavigationBar
+from pages_.navigationBarPage_.navigationBar import NavigationBar
 from tests_.baseTest import BaseTestWithLogIn
 
 

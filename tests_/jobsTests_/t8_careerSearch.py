@@ -1,5 +1,5 @@
-from pages_.footer import Footer
-from pages_.amazonJobsPage import AmazonJobs
+from pages_.footerPage_.footer import Footer
+from pages_.jobsPage_.amazonJobsPage import AmazonJobs
 from tests_.baseTest import BaseTestWithoutLogIn
 
 

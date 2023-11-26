@@ -1,5 +1,5 @@
-from pages_.navigationBar import NavigationBar
-from pages_.searchResultsPage import SearchResultsPage
+from pages_.navigationBarPage_.navigationBar import NavigationBar
+from pages_.productRelatedPages_.searchResultsPage import SearchResultsPage
 from tests_.baseTest import BaseTestWithoutLogIn
 
 

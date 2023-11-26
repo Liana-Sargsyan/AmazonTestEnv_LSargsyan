@@ -1,11 +1,11 @@
-from pages_.footer import Footer
-from pages_.custumerServicePage import CustomerService
+from pages_.footerPage_.footer import Footer
+from pages_.customerServicePage_.custumerServicePage import CustomerService
 from tests_.baseTest import BaseTestWithoutLogIn
 
 
 class DeliveryGuarantees(BaseTestWithoutLogIn):
 
-    def test_delivery_guarantees_help_info(self):
+    def test_delivery_guarantees_help_topic(self):
         footerObj = Footer(self.driver)
         footerObj.click_to_help_button()
         customerServicePageObj = CustomerService(self.driver)

@@ -1,4 +1,4 @@
-from pages_.loginPage import LoginPage
+from pages_.logInPage_.loginPage import LoginPage
 from testData_.testData import validUser, userWithInvalidUserName, userWithInvalidPassword, signInPageUrl
 import time
 from tests_.baseTest import BaseTestWithoutLogIn

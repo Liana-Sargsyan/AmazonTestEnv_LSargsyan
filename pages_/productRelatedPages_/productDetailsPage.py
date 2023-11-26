@@ -12,12 +12,11 @@ class ProductDetailsPage(BasePage):
     def click_to_add_to_cart_button(self):
         addToCartButtonElement = self._find_element(self.__addToCartButtonLocator)
         self._click_to_element(addToCartButtonElement)
+
     def click_to_share_button(self):
         shareButtonElement = self._find_element(self.__shareButtonLocator)
         self._click_to_element(shareButtonElement)
+
     def click_to_facebook_option(self):
         facebookOptionElement = self._find_element(self.__sharingOnFacebookOptionLocator)
         self._click_to_element(facebookOptionElement)
-
-
-

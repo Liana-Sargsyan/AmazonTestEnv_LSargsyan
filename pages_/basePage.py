@@ -38,17 +38,3 @@ class BasePage():
         action = ActionChains(self.driver)
         action.move_to_element(element)
         action.perform()
-
-    def _find_elements(self, locator, timeout=10, condition=EC.presence_of_all_elements_located):
-        try:
-            elements = WebDriverWait(self.driver, timeout).until(condition(locator))
-            return elements
-        except NoSuchElementException as e:
-            print(f"Error: An error occurred: {str(e)} - The element(s) was not found on the page.")
-            exit(1)
-        except TimeoutException as e:
-            print(f"Error: Timeout waiting for element(s): {str(e)}")
-            exit(2)
-        except StaleElementReferenceException as e:
-            print(f"Error: Stale element not found: {str(e)}")
-            exit(3)

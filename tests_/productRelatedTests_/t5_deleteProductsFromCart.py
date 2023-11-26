@@ -1,8 +1,8 @@
-from pages_.navigationBar import NavigationBar
-from pages_.cartPage import CartPage
+from pages_.navigationBarPage_.navigationBar import NavigationBar
+from pages_.cartPage_.cartPage import CartPage
 from tests_.baseTest import BaseTestWithLogIn
-from pages_.searchResultsPage import SearchResultsPage
-from pages_.productDetailsPage import ProductDetailsPage
+from pages_.productRelatedPages_.searchResultsPage import SearchResultsPage
+from pages_.productRelatedPages_.productDetailsPage import ProductDetailsPage
 
 
 class DeleteProductsFromCart(BaseTestWithLogIn):
@@ -12,7 +12,6 @@ class DeleteProductsFromCart(BaseTestWithLogIn):
         navigationBarObj.click_to_cart_button()
         cartPageObj = CartPage(self.driver)
         cartPageObj.validate_cart_emptiness_by_warning_message()
-
 
     def test_delete_first_product_from_cart(self):
         navigationBarObj = NavigationBar(self.driver)
@@ -38,5 +37,11 @@ class DeleteProductsFromCart(BaseTestWithLogIn):
         self.assertEqual(cartCountAfterDeletion, cartCountBeforeDeletion - 1, "Unsuccessful Deletion")
 
     def test_delete_all_products_from_cart(self):
+        navigationBarObj = NavigationBar(self.driver)
+        navigationBarObj.click_to_cart_button()
         cartPageObj = CartPage(self.driver)
+        cartCountBeforeDeletion = int(navigationBarObj.get_cart_count())
         cartPageObj.delete_all_products_from_cart()
+        cartCountAfterDeletion = int(navigationBarObj.get_cart_count())
+
+        self.assertEqual(cartCountAfterDeletion, 0, "Unsuccessful Deletion")

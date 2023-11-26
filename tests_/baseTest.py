@@ -1,6 +1,6 @@
 import unittest
 from selenium import webdriver
-from pages_.loginPage import LoginPage
+from pages_.logInPage_.loginPage import LoginPage
 from selenium.webdriver.support.events import EventFiringWebDriver
 from common_.utilities_.customListener import MyListener
 from testData_.testData import validUser, mainPageUrl, signInPageUrl
