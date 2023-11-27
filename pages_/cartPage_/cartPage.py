@@ -8,7 +8,6 @@ class CartPage(BasePage):
         super().__init__(driver)
         self.__firstProductDeleteLocator = (By.XPATH, "(//input[@value='Delete']) [1]")
         self.__cartEmptinessMessageLocator = (By.XPATH, "(//div[@class='a-row']) [40]")
-        self.__allProductsDeleteLocator = (By.XPATH, "(//input[@value='Delete'])")
 
     def delete_first_product_from_cart(self):
         firstProductDeleteElement = self._find_element(self.__firstProductDeleteLocator)
